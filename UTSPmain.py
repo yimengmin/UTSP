@@ -66,13 +66,10 @@ tsp_sols = np.load('data/train_tsp_sol_%d.npy'%args.num_of_nodes)
 
 
 
-dataset_scale = 1
-LENGDATA = tsp_instances.shape[0]
-total_samples = int(np.floor(LENGDATA*dataset_scale))
-print('total_samples')
-print(total_samples)
 import json
-preposs_time = time.time()
+total_samples = tsp_instances.shape[0]
+
+#preposs_time = time.time()
 
 from models import GNN,GCN
 #scattering model
@@ -95,8 +92,8 @@ def coord_to_adj(coord_arr):
 #    dis_mat = dis_mat + np.eye(args.num_of_nodes)*args.diag_penalty # add a large number on the diagonal,can be intrepreted as a constrint
     return dis_mat
 
-tsp_instances_adj = np.zeros((LENGDATA,args.num_of_nodes,args.num_of_nodes))
-for i in range(LENGDATA):
+tsp_instances_adj = np.zeros((total_samples,args.num_of_nodes,args.num_of_nodes))
+for i in range(total_samples):
     tsp_instances_adj[i] = coord_to_adj(tsp_instances[i])
 #print(coord_to_adj(tsp_instances[0]))
 class TSP_Dataset(Dataset):
@@ -116,8 +113,8 @@ class TSP_Dataset(Dataset):
         return len(self.data)
 
 dataset = TSP_Dataset(tsp_instances,tsp_instances_adj,tsp_sols)
-#num_trainpoints = int(np.floor(0.6*total_samples))
-num_trainpoints = total_samples - 1000
+num_trainpoints = total_samples - 1000 # training on 2,000 intances, you can improve this size
+print('num_trainpoints: %d'%num_trainpoints)
 num_valpoints = total_samples - num_trainpoints
 sctdataset = dataset
 traindata= sctdataset[0:num_trainpoints]
@@ -169,4 +166,3 @@ for i in range(args.EPOCHS):
     train(i)
     torch.save(model.state_dict(),save_dir_path+'scatgnn_layer_%d_hid_%d_model_%d_temp_%.3f.pth'%(args.nlayers,args.hidden,i,args.temperature))
 
-#    test(val_loader,epoch=i)

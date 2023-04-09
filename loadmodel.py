@@ -64,7 +64,6 @@ tsp_instances = args.rescale * tsp_instances # 2.0 is the rescale
 tsp_sols = np.load('data/test_tsp_sol_%d.npy'%args.num_of_nodes)
 total_samples = tsp_instances.shape[0]
 import json
-preposs_time = time.time()
 
 from models import GNN,GCN
 #scattering model
@@ -90,7 +89,6 @@ def coord_to_adj(coord_arr):
 tsp_instances_adj = np.zeros((total_samples,args.num_of_nodes,args.num_of_nodes))
 for i in range(total_samples):
     tsp_instances_adj[i] = coord_to_adj(tsp_instances[i])
-#print(coord_to_adj(tsp_instances[0]))
 class TSP_Dataset(Dataset):
     def __init__(self, coord,data, targets):
         self.coord = torch.FloatTensor(coord)
@@ -123,10 +121,6 @@ def test(loader,topk = 20):
     Saved_Values = np.zeros((TestData_size,args.num_of_nodes,topk))
     Saved_sol = np.zeros((TestData_size,args.num_of_nodes+1))
     Saved_pos = np.zeros((TestData_size,args.num_of_nodes,2))
-#    Saved_indices = torch.zeros(TestData_size,args.num_of_nodes,topk)
-#    Saved_Values = torch.zeros(TestData_size,args.num_of_nodes,topk)
-#    Saved_sol = torch.zeros(TestData_size,args.num_of_nodes+1)
-#    Saved_pos = torch.zeros(TestData_size,args.num_of_nodes,2)
     count = 0
     model.eval()
     for batch in loader:
@@ -143,14 +137,10 @@ def test(loader,topk = 20):
             output = model(features,adj,moment = args.moment,device = device) # running the model
             t1 = time.time()
             Heat_mat = get_heat_map(SctOutput=output,num_of_nodes=args.num_of_nodes,device = device)
-            print('It takes %.5f seconds at instances %d'%(t1 - t0,count))
+            print('It takes %.5f seconds at instance: %d'%(t1 - t0,count))
             sol_indicies = torch.topk(Heat_mat,topk,dim=1).indices
             sol_values = torch.topk(Heat_mat,topk,dim=1).values
 
-#            Saved_indices[count] = sol_indicies
-#            Saved_Values[count] = sol_values
-#            Saved_sol[count] = sol
-#            Saved_pos[count] = xy_pos
             Saved_indices[count] = sol_indicies.detach().cpu().numpy()
             Saved_Values[count] = sol_values.detach().cpu().numpy()
             Saved_sol[count] = sol.detach().cpu().numpy()
@@ -162,12 +152,6 @@ model_name = 'Saved_Models/TSP_100/scatgnn_layer_2_hid_64_model_99_temp_3.500.pt
 
 model.load_state_dict(torch.load(model_name))
 Saved_indices,Saved_Values,Saved_sol,Saved_pos = test(test_loader,topk = 8) # epoch=20>10 
-
-
-#Saved_indices = Saved_indices.detach().cpu().numpy()
-#Saved_Values = Saved_Values.detach().cpu().numpy()
-#Saved_sol = Saved_sol.detach().cpu().numpy()
-#Saved_pos = Saved_pos.detach().cpu().numpy()
 
 
 

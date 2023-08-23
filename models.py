@@ -6,7 +6,7 @@ import torch.nn
 import torch_geometric.utils as sp
 from torch_geometric.data import Data
 from torch.nn import Parameter
-from diff_module import GCN_diffusion, scattering_diffusion
+from diff_module import GCN_diffusion
 from diff_moduleS4 import scattering_diffusionS4
 import numpy as np
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

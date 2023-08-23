@@ -29,11 +29,12 @@ class SCTConv(torch.nn.Module):
         """
         Params
         ------
-        adj [batch x nodes x nodes]: adjacency matrix
-        X [batch x nodes x features]: node features matrix
+        adj [nodes x nodes]: adjacency matrix
+        X [nodes x features]: node features matrix
         Returns
         -------
-        X' [batch x nodes x features]: updated node features matrix
+        X' [nodes x features]: updated node features matrix
+        uploading the [batch size version later, still cleaning code]
         """
         support0 = X
         N = support0.size()[0]
@@ -45,14 +46,11 @@ class SCTConv(torch.nn.Module):
         h_A = nn.LeakyReLU()(h_A)
         h_A2 = nn.LeakyReLU()(h_A2)
         h_A3 = nn.LeakyReLU()(h_A3)
-#        h_sct1, h_sct2, h_sct3 = scattering_diffusion(adj, support0)
-# S4
         h_sct1, h_sct2, h_sct3, h_sct4 = scattering_diffusionS4(adj, support0)
 
         h_sct1 = torch.abs(h_sct1) ** moment
         h_sct2 = torch.abs(h_sct2) ** moment
         h_sct3 = torch.abs(h_sct3) ** moment
-# S4
         h_sct4 = torch.abs(h_sct4) ** moment
 
 
@@ -62,27 +60,14 @@ class SCTConv(torch.nn.Module):
         a_input_sct1 = torch.hstack((h, h_sct1)).unsqueeze(1)
         a_input_sct2 = torch.hstack((h, h_sct2)).unsqueeze(1)
         a_input_sct3 = torch.hstack((h, h_sct3)).unsqueeze(1)
-# S4
         a_input_sct4 = torch.hstack((h, h_sct4)).unsqueeze(1)
 
-
-# S3
-#        a_input = torch.cat((a_input_A, a_input_A2, a_input_A3, a_input_sct1, a_input_sct2, a_input_sct3), 1).view(N, 6, -1)
-# S4
-#        a_input = torch.cat((a_input_A, a_input_A2, a_input_A3, a_input_sct1, a_input_sct2, a_input_sct3,a_input_sct4), 1).view(N, 7, -1)
-# 1 low pass + 3 high pass
         a_input = torch.cat((a_input_A, a_input_A2,a_input_sct1, a_input_sct2, a_input_sct3,a_input_sct4), 1).view(N, 6, -1)
 
         e = torch.matmul(torch.nn.functional.relu(a_input), self.a).squeeze(2)
-# S3
-#        attention = F.softmax(e, dim=1).view(N, 6, -1)
-# S4
         attention = F.softmax(e, dim=1).view(N, 6, -1)
-# S3
-#        h_all = torch.cat((h_A.unsqueeze(dim=2), h_A2.unsqueeze(dim=2), h_A3.unsqueeze(dim=2),
-#        h_sct1.unsqueeze(dim=2), h_sct2.unsqueeze(dim=2), h_sct3.unsqueeze(dim=2)),dim=2).view(N, 6, -1)
-# S4
-        h_all = torch.cat((h_A.unsqueeze(dim=2), h_A2.unsqueeze(dim=2),h_sct1.unsqueeze(dim=2), h_sct2.unsqueeze(dim=2), h_sct3.unsqueeze(dim=2), h_sct4.unsqueeze(dim=2)),dim=2).view(N, 6, -1)
+#        h_all = torch.cat((h_A.unsqueeze(dim=2), h_A2.unsqueeze(dim=2),h_sct1.unsqueeze(dim=2), h_sct2.unsqueeze(dim=2), h_sct3.unsqueeze(dim=2), h_sct4.unsqueeze(dim=2)),dim=2).view(N, 6, -1)
+        h_all = torch.cat((h_A.unsqueeze(dim=1), h_A2.unsqueeze(dim=1),h_sct1.unsqueeze(dim=1), h_sct2.unsqueeze(dim=1), h_sct3.unsqueeze(dim=1), h_sct4.unsqueeze(dim=1)),dim=1)
         h_prime = torch.mul(attention, h_all)
         h_prime = torch.mean(h_prime, 1)
         if self.smoothlayer:
@@ -114,16 +99,11 @@ class GNN(nn.Module):
 #        self.mlp1 = Linear(hidden_dim * (1 + n_layers), output_dim)
 
     def forward(self, X, adj, moment=1, device='cuda'):
-#        numnodes = X.size(0)
-#        scale = np.sqrt(numnodes)
-#        X = X / scale
         X = self.bn0(X)
         X = self.in_proj(X)
         hidden_states = X
         for layer in self.convs:
             X = layer(X, adj, moment=moment, device=device)
-#            X = self.bn1(X)
-#            X = X / scale
             hidden_states = torch.cat([hidden_states, X], dim=1)
 
         X = hidden_states
@@ -131,9 +111,6 @@ class GNN(nn.Module):
         X = F.leaky_relu(X)
         X = self.mlp2(X)
         X = self.m(X)
-#        X = F.relu(X)
-#        X = F.sigmoid(X)
-#        X = X/torch.sum(X,1).unsqueeze(1)
         return X
 
 

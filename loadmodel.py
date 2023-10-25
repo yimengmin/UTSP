@@ -62,7 +62,7 @@ tsp_sols = np.load('../ScatteringTSP/data/test_tsp_sol_%d.npy'%args.num_of_nodes
 total_samples = tsp_instances.shape[0]
 import json
 
-from models import GNN,GCN
+from models import GNN
 #scattering model
 model = GNN(input_dim=2, hidden_dim=args.hidden, output_dim=args.num_of_nodes, n_layers=args.nlayers)
 model = model.to(device)
@@ -148,14 +148,8 @@ def test(loader,topk = 20):
     return Saved_indices,Saved_Values,Saved_sol,Saved_pos
 
 
-#TSP100
-#model_name = 'Saved_Models/TSP_100/scatgnn_layer_2_hid_64_model_210_temp_3.500.pth' # topk = 10
 #TSP200
-#model_name = 'Saved_Models/TSP_200/scatgnn_layer_2_hid_128_model_210_temp_3.500.pth' # topk = 10
-
-#TSP100
-model_name = 'Saved_Models/TSP_500/scatgnn_layer_2_hid_128_model_230_temp_3.500.pth' # topk = 10
-
+model_name = 'Saved_Models/TSP_200/scatgnn_layer_2_hid_%d_model_210_temp_3.500.pth'%(args.hidden)# topk = 10
 model.load_state_dict(torch.load(model_name))
 #Saved_indices,Saved_Values,Saved_sol,Saved_pos = test(test_loader,topk = 8) # epoch=20>10 
 Saved_indices,Saved_Values,Saved_sol,Saved_pos = test(test_loader,topk = 20) # epoch=20>10

@@ -4,8 +4,6 @@ from torch.nn import Linear
 import time
 from torch import tensor
 import torch.nn
-import networkx as nx
-import scipy
 from utils import TSPLoss,edge_overlap,get_heat_map
 import pickle
 from torch.utils.data import  Dataset,DataLoader# use pytorch dataloader
@@ -15,7 +13,6 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--seed', type=int, default=42, help='Random seed.')
 parser.add_argument('--num_of_nodes', type=int, default=100, help='Graph Size')
-parser.add_argument('--dropout', type=float, default=0.0,help='probability of an element to be zeroed:')
 parser.add_argument('--lr', type=float, default=1e-3,
                     help='Learning Rate')
 parser.add_argument('--smoo', type=float, default=0.1,
@@ -51,7 +48,7 @@ torch.cuda.manual_seed(args.seed)
 device = args.device
 
 
-tsp_instances = np.load('data/test_tsp_instance_%d.npy'%args.num_of_nodes) # 10,000 instances
+tsp_instances = np.load('../ScatteringTSP/data/test_tsp_instance_%d.npy'%args.num_of_nodes) # 10,000 instances
 NumofTestSample = tsp_instances.shape[0]
 Std = np.std(tsp_instances, axis=1)
 Mean = np.mean(tsp_instances, axis=1)
@@ -61,13 +58,13 @@ tsp_instances = tsp_instances - Mean.reshape((NumofTestSample,1,2))
 
 tsp_instances = args.rescale * tsp_instances # 2.0 is the rescale
 
-tsp_sols = np.load('data/test_tsp_sol_%d.npy'%args.num_of_nodes)
+tsp_sols = np.load('../ScatteringTSP/data/test_tsp_sol_%d.npy'%args.num_of_nodes)
 total_samples = tsp_instances.shape[0]
 import json
 
 from models import GNN,GCN
 #scattering model
-model = GNN(input_dim=2, hidden_dim=args.hidden, output_dim=args.num_of_nodes, n_layers=args.nlayers,dropout=args.dropout,Withgres=args.use_smoo,smooth=args.smoo)
+model = GNN(input_dim=2, hidden_dim=args.hidden, output_dim=args.num_of_nodes, n_layers=args.nlayers)
 model = model.to(device)
 from scipy.spatial import distance_matrix
 
@@ -110,7 +107,8 @@ testdata = dataset[0:] ##this is very important!
 TestData_size = len(testdata)
 batch_size = args.batch_size
 test_loader = DataLoader(testdata, batch_size, shuffle=False)
-
+mask = torch.ones(args.num_of_nodes, args.num_of_nodes).to(device)
+mask.fill_diagonal_(0)
 def test(loader,topk = 20):
     avg_size = 0
     total_cost = 0.0
@@ -124,35 +122,45 @@ def test(loader,topk = 20):
     count = 0
     model.eval()
     for batch in loader:
-        for i in range(len(batch[0])):
-            xy_pos = batch[0][i]
-            distance_m = batch[1][i] #distance_m is used to calculate the loss function
-            sol = batch[2][i]
-            distance_m = distance_m.to(device)
-            adj = torch.exp(-1.*distance_m/args.temperature)
-            adj.fill_diagonal_(0)
-            features = xy_pos.to(device)
-            adj = adj.to(device)
-            t0 = time.time()
-            output = model(features,adj,moment = args.moment,device = device) # running the model
-            t1 = time.time()
-            Heat_mat = get_heat_map(SctOutput=output,num_of_nodes=args.num_of_nodes,device = device)
-            print('It takes %.5f seconds at instance: %d'%(t1 - t0,count))
-            sol_indicies = torch.topk(Heat_mat,topk,dim=1).indices
-            sol_values = torch.topk(Heat_mat,topk,dim=1).values
+        batch_size = batch[0].size(0)
+        xy_pos = batch[0].to(device)
+        distance_m = batch[1].to(device)
+        sol = batch[2]
+        adj = torch.exp(-1.*distance_m/args.temperature)
+        adj *= mask
+        # start here:
+        t0 = time.time()
+        output = model(xy_pos,adj)
+        t1 = time.time()
+        Heat_mat = get_heat_map(SctOutput=output,num_of_nodes=args.num_of_nodes,device = device)
+        print('It takes %.5f seconds from instance: %d to %d'%(t1 - t0,count,count + batch_size))
+        sol_indicies = torch.topk(Heat_mat,topk,dim=2).indices
+        sol_values = torch.topk(Heat_mat,topk,dim=2).values
+#        print(sol_values.size())
+#        print(batch_size)
+        Saved_indices[count:batch_size+count] = sol_indicies.detach().cpu().numpy()
+        Saved_Values[count:batch_size+count] = sol_values.detach().cpu().numpy()
+        Saved_sol[count:batch_size+count] = sol.detach().cpu().numpy()
+        Saved_pos[count:batch_size+count] = xy_pos.detach().cpu().numpy()
+        count = count + batch_size
 
-            Saved_indices[count] = sol_indicies.detach().cpu().numpy()
-            Saved_Values[count] = sol_values.detach().cpu().numpy()
-            Saved_sol[count] = sol.detach().cpu().numpy()
-            Saved_pos[count] = xy_pos.detach().cpu().numpy()
-            count = count + 1
+
     return Saved_indices,Saved_Values,Saved_sol,Saved_pos
 
-model_name = 'Saved_Models/TSP_100/scatgnn_layer_2_hid_64_model_99_temp_3.500.pth' # topk = 10
+
+#TSP100
+#model_name = 'Saved_Models/TSP_100/scatgnn_layer_2_hid_64_model_210_temp_3.500.pth' # topk = 10
+#TSP200
+#model_name = 'Saved_Models/TSP_200/scatgnn_layer_2_hid_128_model_210_temp_3.500.pth' # topk = 10
+
+#TSP100
+model_name = 'Saved_Models/TSP_500/scatgnn_layer_2_hid_128_model_230_temp_3.500.pth' # topk = 10
 
 model.load_state_dict(torch.load(model_name))
-Saved_indices,Saved_Values,Saved_sol,Saved_pos = test(test_loader,topk = 8) # epoch=20>10 
+#Saved_indices,Saved_Values,Saved_sol,Saved_pos = test(test_loader,topk = 8) # epoch=20>10 
+Saved_indices,Saved_Values,Saved_sol,Saved_pos = test(test_loader,topk = 20) # epoch=20>10
 
+print('Finish Inference!')
 
 
 idcs =  Saved_indices
@@ -207,5 +215,6 @@ with open("1kTraning_TSP%dInstance_%d.txt"%(args.num_of_nodes,idcs.shape[0]), "w
         f.write("\n")
         if i == idcs.shape[0] - 1:
             break
+
 
 

@@ -2,13 +2,7 @@
 adapted from Scattering GCN: Overcoming Oversmoothness in Graph Convolutional Networks
 '''
 import numpy as np
-import scipy.sparse as sp
 import torch
-import sys
-import pickle as pkl
-import networkx as nx
-from time import perf_counter
-from torch_geometric.utils.convert import to_scipy_sparse_matrix 
 def sparse_mx_to_torch_sparse_tensor(sparse_mx):
     """Convert a scipy sparse matrix to a torch sparse tensor."""
     sparse_mx = sparse_mx.tocoo().astype(np.float32)
@@ -18,25 +12,23 @@ def sparse_mx_to_torch_sparse_tensor(sparse_mx):
     shape = torch.Size(sparse_mx.shape)
     return torch.sparse.FloatTensor(indices, values, shape)
 
-
-
 def TSPLoss(SctOutput,distance_matrix,num_of_nodes,device = 'cuda'):
     '''
     input:
-    SctOutput: num_of_nodes * num_of_nodes tensor
-    distance_matrix: num_of_nodes * num_of_nodes tensor
+    SctOutput: batchsize * num_of_nodes * num_of_nodes tensor
+    distance_matrix: batchsize * num_of_nodes * num_of_nodes tensor
     '''
-    Tsp_point_wise_distance = torch.matmul(SctOutput, torch.roll(torch.transpose(SctOutput, 0, 1),-1, 0))
+    Tsp_point_wise_distance = torch.matmul(SctOutput, torch.roll(torch.transpose(SctOutput, 1, 2),-1, 1))
     weighted_path = torch.mul(Tsp_point_wise_distance, distance_matrix)
-    weighted_path = torch.sum(weighted_path)
+    weighted_path = weighted_path.sum(dim=(1,2))
     return weighted_path, Tsp_point_wise_distance
 
 def get_heat_map(SctOutput,num_of_nodes,device = 'cuda'):
     '''
     input:
-    SctOutput: num_of_nodes * num_of_nodes tensor
+    SctOutput: batchsize * num_of_nodes * num_of_nodes tensor
     '''
-    Tsp_point_wise_distance = torch.matmul(SctOutput, torch.roll(torch.transpose(SctOutput, 0, 1),-1, 0))
+    Tsp_point_wise_distance = torch.matmul(SctOutput, torch.roll(torch.transpose(SctOutput, 1, 2),-1, 1))
     return Tsp_point_wise_distance
 
 
@@ -59,8 +51,6 @@ def edge_overlap(pred,gt_sol):
                 pred_edge_set.add((pred_node,i))
     pred_gt_intsect = pred_edge_set.intersection(gt_edge_set)
     len_of_pred_gt = len(pred_edge_set)
-    
-    
     overlap_edge = len(pred_gt_intsect)/2 #here we consider bi-directional, so div 2
     return overlap_edge,len_of_pred_gt/2
 

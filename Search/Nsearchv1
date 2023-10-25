@@ -1,0 +1,1641 @@
+start make sub directory makefile...
+g++ -lstdc++ -std=c++11 -fPIC -fvisibility=hidden -o  code/TSP.o -c code/TSP.cpp  
+g++ -lstdc++ -std=c++11 -fPIC -o test code/TSP.o  -L.       -lpthread -lm -ldl
+strip test
+chmod a+x test
+rm -rf *.o
+make exe succesfull!!!
+record some exp parameters here: !!
+Alpha: 0
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+restart1
+restart_reconly1
+record some exp parameters here: !!
+Alpha: 0
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+record some exp parameters here: !!
+rec_only 0
+record some exp parameters here: !!
+restart1
+Alpha: 0
+record some exp parameters here: !!
+restart_reconly1
+Alpha: 0
+Beta: 50
+Alpha: 0
+record some exp parameters here: !!
+Beta: 50
+Param_H: 2
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+Alpha: 0
+Param_H: 2
+Param_T: 0.08
+record some exp parameters here: !!
+#Candidate Set: 5
+Beta: 50
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+Param_H: 2
+Alpha: 0
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+Param_T: 0.08
+Beta: 50
+Max Depth 100
+rec_only 0
+restart1
+#Candidate Set: 5
+Param_H: 2
+rec_only 0
+restart1
+restart_reconly1
+Max Depth 100
+Param_T: 0.08
+restart1
+restart_reconly1
+rec_only 0
+#Candidate Set: 5
+restart_reconly1
+restart1
+Max Depth 100
+restart_reconly1
+rec_only 0
+restart1
+restart_reconly1
+record some exp parameters here: !!
+record some exp parameters here: !!
+Alpha: 0
+Beta: 50
+Alpha: 0
+Param_H: 2
+Beta: 50
+Param_T: 0.08
+Param_H: 2
+#Candidate Set: 5
+Param_T: 0.08
+Max Depth 100
+#Candidate Set: 5
+rec_only 0
+Max Depth 100
+restart1
+rec_only 0
+restart_reconly1
+restart1
+restart_reconly1
+record some exp parameters here: !!
+Alpha: 0
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+restart1
+record some exp parameters here: !!
+restart_reconly1
+Alpha: 0
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+restart1
+restart_reconly1
+record some exp parameters here: !!
+Alpha: 0
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+restart1
+restart_reconly1
+record some exp parameters here: !!
+Alpha: 0
+Beta: 50
+Param_H: 2
+record some exp parameters here: !!
+Param_T: 0.08
+record some exp parameters here: !!
+record some exp parameters here: !!
+Alpha: 0
+#Candidate Set: 5
+Alpha: 0
+Beta: 50
+Alpha: 0
+Max Depth 100
+Beta: 50
+Param_H: 2
+Beta: 50
+rec_only 0
+Param_H: 2
+Param_T: 0.08
+Param_H: 2
+restart1
+Param_T: 0.08
+#Candidate Set: 5
+Param_T: 0.08
+restart_reconly1
+#Candidate Set: 5
+Max Depth 100
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+Max Depth 100
+rec_only 0
+restart1
+rec_only 0
+restart1
+restart_reconly1
+restart1
+restart_reconly1
+restart_reconly1
+record some exp parameters here: !!
+Alpha: 0
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+restart1
+restart_reconly1
+record some exp parameters here: !!
+Alpha: 0
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+restart1
+restart_reconly1
+record some exp parameters here: !!
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Alpha: 0
+Total Instance Considered: 128
+record some exp parameters here: !!
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+Alpha: 0
+rec_only 0
+Beta: 50
+restart1
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Param_H: 2
+restart_reconly1
+Total Instance Considered: 128
+record some exp parameters here: !!
+Param_T: 0.08
+#Candidate Set: 5
+Alpha: 0
+Max Depth 100
+Beta: 50
+rec_only 0
+Param_H: 2
+restart1
+Param_T: 0.08
+restart_reconly1
+#Candidate Set: 5
+Max Depth 100
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+rec_only 0
+Total Instance Considered: 128
+restart1
+restart_reconly1
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+record some exp parameters here: !!
+Alpha: 0
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Beta: 50
+Total Instance Considered: 128
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+restart1
+restart_reconly1
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+record some exp parameters here: !!
+Alpha: 0
+record some exp parameters here: !!
+Beta: 50
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Param_H: 2
+Total Instance Considered: 128
+Alpha: 0
+Param_T: 0.08
+Beta: 50
+#Candidate Set: 5
+Param_H: 2
+Max Depth 100
+Param_T: 0.08
+rec_only 0
+#Candidate Set: 5
+restart1
+Max Depth 100
+restart_reconly1
+rec_only 0
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+restart1
+Total Instance Considered: 128
+restart_reconly1
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+record some exp parameters here: !!
+record some exp parameters here: !!
+record some exp parameters here: !!
+Alpha: 0
+Alpha: 0
+Beta: 50
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Beta: 50
+Alpha: 0
+Param_H: 2
+Total Instance Considered: 128
+Param_H: 2
+Beta: 50
+Param_T: 0.08
+Param_T: 0.08
+Param_H: 2
+#Candidate Set: 5
+#Candidate Set: 5
+Param_T: 0.08
+Max Depth 100
+Max Depth 100
+#Candidate Set: 5
+rec_only 0
+rec_only 0
+Max Depth 100
+restart1
+restart1
+rec_only 0
+restart_reconly1
+restart_reconly1
+restart1
+restart_reconly1
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+record some exp parameters here: !!
+Alpha: 0
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+restart1
+restart_reconly1
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+record some exp parameters here: !!
+Alpha: 0
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+restart1
+restart_reconly1
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+record some exp parameters here: !!
+Alpha: 0
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+rec_only 0
+Total Instance Considered: 128
+restart1
+restart_reconly1
+record some exp parameters here: !!
+Alpha: 0
+Beta: 50
+Param_H: 2
+Param_T: 0.08
+record some exp parameters here: !!
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+Alpha: 0
+restart1
+Beta: 50
+restart_reconly1
+Param_H: 2
+Param_T: 0.08
+#Candidate Set: 5
+Max Depth 100
+rec_only 0
+restart1
+restart_reconly1
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+
+Begin to read instances information from /mnt/beegfs/bulk/mirror/ym499/PRLTSP_gitrepo/1kTraning_TSP200Instance_128.txt
+Total Instance Considered: 128
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start Preprocess
+Start MDP Search
+Use Rec
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start Preprocess
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Start MDP Search
+Use Rec
+Use Rec
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start Preprocess
+Start MDP Search
+Use Rec
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+
+Read instances finished. Begin to search.
+Inst Num Per Batch 4
+
+Number of instances in current batch: 4
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:187
+
+Inst_Index:89 Concorde Distance:21.405636, MCTS Distance:21.486542 Improve:-0.080906 Time:16.03 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:180
+
+Inst_Index:49 Concorde Distance:21.409612, MCTS Distance:21.384727 Improve:0.024885 Time:16.05 Seconds
+Start Fetch
+Start Preprocess
+jump:169
+
+Inst_Index:81 Concorde Distance:21.441936, MCTS Distance:21.433034 Improve:0.008902 Time:16.05 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+Start MDP Search
+Use Rec
+jump:184
+
+Inst_Index:41 Concorde Distance:21.126069, MCTS Distance:21.107647 Improve:0.018422 Time:16.08 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:194
+
+Inst_Index:57 Concorde Distance:21.387927, MCTS Distance:21.350761 Improve:0.037166 Time:16.00 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:188
+
+Inst_Index:97 Concorde Distance:21.250349, MCTS Distance:21.262469 Improve:-0.012119 Time:16.11 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:188
+
+Inst_Index:37 Concorde Distance:21.542481, MCTS Distance:21.519733 Improve:0.022748 Time:16.05 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:195
+
+Inst_Index:53 Concorde Distance:21.467755, MCTS Distance:21.448248 Improve:0.019507 Time:16.05 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:186
+
+Inst_Index:69 Concorde Distance:21.842093, MCTS Distance:21.836577 Improve:0.005516 Time:16.08 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:174
+
+Inst_Index:93 Concorde Distance:21.259140, MCTS Distance:21.332311 Improve:-0.073171 Time:16.04 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:172
+
+Inst_Index:77 Concorde Distance:21.547660, MCTS Distance:21.537871 Improve:0.009788 Time:16.02 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:167
+
+Inst_Index:13 Concorde Distance:20.688682, MCTS Distance:20.793628 Improve:-0.104946 Time:16.06 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:180
+
+Inst_Index:65 Concorde Distance:21.678493, MCTS Distance:21.747683 Improve:-0.069190 Time:16.04 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:175
+
+Inst_Index:9 Concorde Distance:21.577234, MCTS Distance:21.579257 Improve:-0.002023 Time:16.02 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:162
+
+Inst_Index:73 Concorde Distance:20.466676, MCTS Distance:20.472159 Improve:-0.005483 Time:16.16 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:178
+
+Inst_Index:109 Concorde Distance:20.991716, MCTS Distance:20.955955 Improve:0.035761 Time:16.02 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:182
+
+Inst_Index:101 Concorde Distance:22.072455, MCTS Distance:22.040920 Improve:0.031536 Time:16.10 Seconds
+Start Fetch
+jump:175
+
+Inst_Index:33 Concorde Distance:21.659218, MCTS Distance:21.607581 Improve:0.051636 Time:16.02 Seconds
+Start Fetch
+Start Preprocess
+Start Preprocess
+Start MDP Search
+Use Rec
+Start MDP Search
+Use Rec
+jump:160
+
+Inst_Index:121 Concorde Distance:21.719465, MCTS Distance:21.736554 Improve:-0.017089 Time:16.08 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:167
+
+Inst_Index:1 Concorde Distance:21.593119, MCTS Distance:21.642057 Improve:-0.048938 Time:16.08 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:186
+
+Inst_Index:21 Concorde Distance:21.249870, MCTS Distance:21.249286 Improve:0.000585 Time:16.14 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:166
+
+Inst_Index:113 Concorde Distance:21.538535, MCTS Distance:21.527748 Improve:0.010787 Time:16.10 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:185
+
+Inst_Index:45 Concorde Distance:21.393097, MCTS Distance:21.393061 Improve:0.000036 Time:16.05 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:178
+
+Inst_Index:125 Concorde Distance:22.228257, MCTS Distance:22.268252 Improve:-0.039995 Time:16.09 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:180
+
+Inst_Index:17 Concorde Distance:20.968243, MCTS Distance:20.942122 Improve:0.026121 Time:16.07 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:155
+
+Inst_Index:61 Concorde Distance:21.146939, MCTS Distance:21.187034 Improve:-0.040095 Time:16.15 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:175
+
+Inst_Index:117 Concorde Distance:21.816725, MCTS Distance:21.843277 Improve:-0.026552 Time:16.20 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:173
+
+Inst_Index:85 Concorde Distance:21.738933, MCTS Distance:21.718690 Improve:0.020244 Time:16.09 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:189
+
+Inst_Index:105 Concorde Distance:21.832143, MCTS Distance:21.860951 Improve:-0.028808 Time:16.01 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:178
+
+Inst_Index:25 Concorde Distance:22.534305, MCTS Distance:22.618049 Improve:-0.083744 Time:16.08 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:159
+
+Inst_Index:29 Concorde Distance:22.198258, MCTS Distance:22.252785 Improve:-0.054527 Time:16.01 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:156
+
+Inst_Index:5 Concorde Distance:21.367844, MCTS Distance:21.350519 Improve:0.017325 Time:16.02 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:172
+
+Inst_Index:90 Concorde Distance:20.842458, MCTS Distance:20.799416 Improve:0.043043 Time:16.03 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:163
+
+Inst_Index:82 Concorde Distance:21.044995, MCTS Distance:21.070014 Improve:-0.025019 Time:16.01 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:175
+
+Inst_Index:50 Concorde Distance:21.972555, MCTS Distance:22.011409 Improve:-0.038854 Time:16.05 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:181
+jump:169
+
+Inst_Index:54 Concorde Distance:22.074044, MCTS Distance:22.055771 Improve:0.018273 Time:16.01 Seconds
+Start Fetch
+
+Inst_Index:38 Concorde Distance:21.888876, MCTS Distance:21.943474 Improve:-0.054598 Time:16.01 Seconds
+Start Fetch
+Start Preprocess
+Start Preprocess
+Start MDP Search
+Use Rec
+Start MDP Search
+Use Rec
+jump:173
+
+Inst_Index:98 Concorde Distance:21.433900, MCTS Distance:21.433900 Improve:0.000000 Time:16.04 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:171
+
+Inst_Index:58 Concorde Distance:21.324310, MCTS Distance:21.335748 Improve:-0.011437 Time:16.09 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:174
+
+Inst_Index:94 Concorde Distance:21.668141, MCTS Distance:21.700740 Improve:-0.032599 Time:16.02 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:164
+
+Inst_Index:42 Concorde Distance:21.286868, MCTS Distance:21.275106 Improve:0.011762 Time:16.16 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:163
+
+Inst_Index:14 Concorde Distance:21.587925, MCTS Distance:21.588079 Improve:-0.000155 Time:16.02 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:189
+
+Inst_Index:70 Concorde Distance:21.492732, MCTS Distance:21.500781 Improve:-0.008049 Time:16.13 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:199
+
+Inst_Index:74 Concorde Distance:21.752222, MCTS Distance:21.788151 Improve:-0.035929 Time:16.02 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:185
+
+Inst_Index:66 Concorde Distance:20.494937, MCTS Distance:20.510018 Improve:-0.015081 Time:16.05 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:172
+
+Inst_Index:34 Concorde Distance:21.662388, MCTS Distance:21.620644 Improve:0.041744 Time:16.00 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:176
+
+Inst_Index:10 Concorde Distance:21.607234, MCTS Distance:21.583543 Improve:0.023692 Time:16.07 Seconds
+Start Fetch
+Start Preprocess
+jump:197
+
+Inst_Index:78 Concorde Distance:22.703783, MCTS Distance:22.711106 Improve:-0.007323 Time:16.11 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+Start MDP Search
+Use Rec
+jump:193
+
+Inst_Index:110 Concorde Distance:22.225161, MCTS Distance:22.230333 Improve:-0.005172 Time:16.09 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:181
+
+Inst_Index:22 Concorde Distance:21.910352, MCTS Distance:21.923113 Improve:-0.012760 Time:16.00 Seconds
+Start Fetch
+jump:178
+
+Inst_Index:102 Concorde Distance:21.779919, MCTS Distance:21.788901 Improve:-0.008982 Time:16.11 Seconds
+Start Fetch
+Start Preprocess
+Start Preprocess
+Start MDP Search
+Start MDP Search
+Use Rec
+Use Rec
+jump:178
+
+Inst_Index:2 Concorde Distance:20.630109, MCTS Distance:20.610388 Improve:0.019722 Time:16.01 Seconds
+Start Fetch
+Start Preprocess
+jump:174
+
+Inst_Index:122 Concorde Distance:21.784563, MCTS Distance:21.763308 Improve:0.021255 Time:16.03 Seconds
+Start Fetch
+Start MDP Search
+Use Rec
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:191
+
+Inst_Index:126 Concorde Distance:21.007396, MCTS Distance:21.004096 Improve:0.003300 Time:16.01 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:169
+
+Inst_Index:46 Concorde Distance:21.356177, MCTS Distance:21.346459 Improve:0.009718 Time:16.06 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:189
+
+Inst_Index:18 Concorde Distance:21.693040, MCTS Distance:21.677702 Improve:0.015338 Time:16.01 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:170
+
+Inst_Index:62 Concorde Distance:20.901520, MCTS Distance:20.889889 Improve:0.011630 Time:16.06 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:165
+
+Inst_Index:114 Concorde Distance:21.087294, MCTS Distance:21.119461 Improve:-0.032167 Time:16.16 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:177
+
+Inst_Index:86 Concorde Distance:21.127468, MCTS Distance:21.109881 Improve:0.017587 Time:16.03 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:178
+
+Inst_Index:118 Concorde Distance:21.291851, MCTS Distance:21.378928 Improve:-0.087076 Time:16.10 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:175
+
+Inst_Index:106 Concorde Distance:21.969092, MCTS Distance:21.942797 Improve:0.026295 Time:16.04 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:165
+
+Inst_Index:26 Concorde Distance:22.124841, MCTS Distance:22.149716 Improve:-0.024876 Time:16.20 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:177
+
+Inst_Index:30 Concorde Distance:21.790044, MCTS Distance:21.822132 Improve:-0.032088 Time:16.19 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:181
+
+Inst_Index:6 Concorde Distance:21.342453, MCTS Distance:21.392474 Improve:-0.050021 Time:16.12 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:166
+
+Inst_Index:91 Concorde Distance:21.829598, MCTS Distance:21.839714 Improve:-0.010116 Time:16.01 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:173
+
+Inst_Index:83 Concorde Distance:20.504413, MCTS Distance:20.537754 Improve:-0.033340 Time:16.02 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:176
+
+Inst_Index:51 Concorde Distance:20.183482, MCTS Distance:20.197979 Improve:-0.014497 Time:16.02 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:161
+
+Inst_Index:39 Concorde Distance:21.414689, MCTS Distance:21.397061 Improve:0.017627 Time:16.00 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:192
+
+Inst_Index:99 Concorde Distance:21.623921, MCTS Distance:21.598735 Improve:0.025185 Time:16.04 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:185
+
+Inst_Index:95 Concorde Distance:22.334263, MCTS Distance:22.309342 Improve:0.024921 Time:16.03 Seconds
+Start Fetch
+Start Preprocess
+jump:180
+
+Inst_Index:55 Concorde Distance:21.682165, MCTS Distance:21.682228 Improve:-0.000063 Time:16.09 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+Start MDP Search
+Use Rec
+jump:195
+
+Inst_Index:59 Concorde Distance:20.797519, MCTS Distance:20.819730 Improve:-0.022211 Time:16.10 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:181
+
+Inst_Index:15 Concorde Distance:21.752848, MCTS Distance:21.757147 Improve:-0.004298 Time:16.08 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:172
+
+Inst_Index:43 Concorde Distance:20.944182, MCTS Distance:20.977389 Improve:-0.033207 Time:16.09 Seconds
+Start Fetch
+Start Preprocess
+jump:162
+
+Inst_Index:75 Concorde Distance:21.693692, MCTS Distance:21.680233 Improve:0.013458 Time:16.04 Seconds
+Start Fetch
+Start MDP Search
+Use Rec
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:197
+
+Inst_Index:67 Concorde Distance:21.496514, MCTS Distance:21.496514 Improve:0.000000 Time:16.04 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:181
+
+Inst_Index:35 Concorde Distance:20.914359, MCTS Distance:20.954269 Improve:-0.039910 Time:16.04 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:189
+
+Inst_Index:11 Concorde Distance:21.820655, MCTS Distance:21.830244 Improve:-0.009589 Time:16.02 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:152
+
+Inst_Index:71 Concorde Distance:21.366183, MCTS Distance:21.320876 Improve:0.045307 Time:16.11 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:187
+
+Inst_Index:111 Concorde Distance:21.160793, MCTS Distance:21.155720 Improve:0.005073 Time:16.01 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:177
+
+Inst_Index:79 Concorde Distance:21.076393, MCTS Distance:21.091961 Improve:-0.015569 Time:16.08 Seconds
+Start Fetch
+Start Preprocess
+jump:176
+
+Inst_Index:23 Concorde Distance:21.842375, MCTS Distance:21.910814 Improve:-0.068438 Time:16.01 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+Start MDP Search
+Use Rec
+jump:177
+
+Inst_Index:3 Concorde Distance:21.490173, MCTS Distance:21.478302 Improve:0.011871 Time:16.05 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:187
+
+Inst_Index:103 Concorde Distance:21.259594, MCTS Distance:21.236460 Improve:0.023134 Time:16.07 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:180
+
+Inst_Index:123 Concorde Distance:20.764947, MCTS Distance:20.755486 Improve:0.009460 Time:16.07 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:177
+
+Inst_Index:47 Concorde Distance:21.654261, MCTS Distance:21.653929 Improve:0.000332 Time:16.00 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:173
+
+Inst_Index:127 Concorde Distance:21.757830, MCTS Distance:21.781388 Improve:-0.023558 Time:16.14 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:190
+
+Inst_Index:63 Concorde Distance:21.386578, MCTS Distance:21.375620 Improve:0.010958 Time:16.05 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:172
+
+Inst_Index:115 Concorde Distance:21.160036, MCTS Distance:21.164971 Improve:-0.004936 Time:16.03 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:173
+
+Inst_Index:19 Concorde Distance:21.058727, MCTS Distance:21.093615 Improve:-0.034888 Time:16.12 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:159
+
+Inst_Index:87 Concorde Distance:20.758163, MCTS Distance:20.771227 Improve:-0.013065 Time:16.09 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:179
+
+Inst_Index:119 Concorde Distance:21.242154, MCTS Distance:21.232541 Improve:0.009612 Time:16.05 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:186
+
+Inst_Index:107 Concorde Distance:22.257999, MCTS Distance:22.326616 Improve:-0.068617 Time:16.08 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:185
+
+Inst_Index:27 Concorde Distance:21.629529, MCTS Distance:21.613536 Improve:0.015992 Time:16.04 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:171
+
+Inst_Index:31 Concorde Distance:21.608915, MCTS Distance:21.678419 Improve:-0.069504 Time:16.09 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:177
+
+Inst_Index:7 Concorde Distance:21.317862, MCTS Distance:21.313214 Improve:0.004649 Time:16.06 Seconds
+Start Fetch
+Start Preprocess
+Start MDP Search
+Use Rec
+jump:174
+jump:192
+
+Inst_Index:92 Concorde Distance:21.025036, MCTS Distance:21.067826 Improve:-0.042791 Time:16.10 Seconds
+
+
+Index_In_Batch: 22, Avg_Concorde_Distance: 21.275682 Avg_MCTS_Distance: 21.298375 Avg_Gap: 0.001053 Total_Time: 65.11 Seconds 
+ Beat_Best_Known_Times: 1 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 3 
+
+Inst_Index:84 Concorde Distance:21.202809, MCTS Distance:21.257267 Improve:-0.054458 Time:16.07 Seconds
+
+
+Index_In_Batch: 20, Avg_Concorde_Distance: 21.048538 Avg_MCTS_Distance: 21.074517 Avg_Gap: 0.001242 Total_Time: 65.10 Seconds 
+ Beat_Best_Known_Times: 1 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 3 
+jump:185
+jump:196
+
+Inst_Index:40 Concorde Distance:21.205338, MCTS Distance:21.297814 Improve:-0.092475 Time:16.02 Seconds
+
+
+Index_In_Batch: 9, Avg_Concorde_Distance: 21.512846 Avg_MCTS_Distance: 21.539521 Avg_Gap: 0.001244 Total_Time: 65.11 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+
+Inst_Index:52 Concorde Distance:22.489573, MCTS Distance:22.445043 Improve:0.044529 Time:16.10 Seconds
+
+
+Index_In_Batch: 12, Avg_Concorde_Distance: 21.513805 Avg_MCTS_Distance: 21.509789 Avg_Gap: -0.000164 Total_Time: 65.18 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+jump:179
+
+Inst_Index:100 Concorde Distance:21.846391, MCTS Distance:21.839298 Improve:0.007093 Time:16.05 Seconds
+
+
+Index_In_Batch: 24, Avg_Concorde_Distance: 21.538640 Avg_MCTS_Distance: 21.533601 Avg_Gap: -0.000230 Total_Time: 65.19 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 1 Miss_Best_Known_Times: 1 
+jump:178
+jump:176
+
+Inst_Index:72 Concorde Distance:20.909865, MCTS Distance:20.976983 Improve:-0.067118 Time:16.00 Seconds
+
+
+Index_In_Batch: 17, Avg_Concorde_Distance: 21.402718 Avg_MCTS_Distance: 21.408804 Avg_Gap: 0.000303 Total_Time: 65.33 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+jump:174
+
+Inst_Index:56 Concorde Distance:22.084235, MCTS Distance:22.149046 Improve:-0.064811 Time:16.09 Seconds
+
+
+Index_In_Batch: 13, Avg_Concorde_Distance: 21.827050 Avg_MCTS_Distance: 21.833823 Avg_Gap: 0.000300 Total_Time: 65.26 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+jump:176
+jump:174
+jump:173
+
+Inst_Index:60 Concorde Distance:21.147870, MCTS Distance:21.194120 Improve:-0.046250 Time:16.11 Seconds
+
+
+Index_In_Batch: 14, Avg_Concorde_Distance: 21.164407 Avg_MCTS_Distance: 21.175090 Avg_Gap: 0.000513 Total_Time: 65.34 Seconds 
+ Beat_Best_Known_Times: 1 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 3 
+jump:172
+
+Inst_Index:96 Concorde Distance:21.501020, MCTS Distance:21.567249 Improve:-0.066229 Time:16.15 Seconds
+
+
+Index_In_Batch: 23, Avg_Concorde_Distance: 21.690641 Avg_MCTS_Distance: 21.727410 Avg_Gap: 0.001728 Total_Time: 65.34 Seconds 
+ Beat_Best_Known_Times: 1 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 3 
+
+Inst_Index:12 Concorde Distance:21.932290, MCTS Distance:21.905222 Improve:0.027068 Time:16.01 Seconds
+
+
+Index_In_Batch: 2, Avg_Concorde_Distance: 21.734353 Avg_MCTS_Distance: 21.724566 Avg_Gap: -0.000449 Total_Time: 65.34 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+jump:169
+
+Inst_Index:44 Concorde Distance:21.325900, MCTS Distance:21.357830 Improve:-0.031930 Time:16.06 Seconds
+
+
+Index_In_Batch: 10, Avg_Concorde_Distance: 21.170754 Avg_MCTS_Distance: 21.179493 Avg_Gap: 0.000415 Total_Time: 65.34 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+jump:186
+
+Inst_Index:68 Concorde Distance:20.973357, MCTS Distance:21.083331 Improve:-0.109973 Time:16.06 Seconds
+
+
+Index_In_Batch: 16, Avg_Concorde_Distance: 21.160825 Avg_MCTS_Distance: 21.209387 Avg_Gap: 0.002293 Total_Time: 65.36 Seconds 
+ Beat_Best_Known_Times: 0 Match_Best_Known_Times: 1 Miss_Best_Known_Times: 3 
+jump:156
+
+Inst_Index:36 Concorde Distance:22.062743, MCTS Distance:22.105493 Improve:-0.042750 Time:16.04 Seconds
+
+
+Index_In_Batch: 8, Avg_Concorde_Distance: 21.574677 Avg_MCTS_Distance: 21.571997 Avg_Gap: -0.000116 Total_Time: 65.35 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+jump:171
+jump:159
+
+Inst_Index:76 Concorde Distance:21.361205, MCTS Distance:21.377686 Improve:-0.016482 Time:16.06 Seconds
+
+
+Index_In_Batch: 18, Avg_Concorde_Distance: 21.318449 Avg_MCTS_Distance: 21.329558 Avg_Gap: 0.000518 Total_Time: 65.34 Seconds 
+ Beat_Best_Known_Times: 1 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 3 
+
+Inst_Index:80 Concorde Distance:22.034208, MCTS Distance:22.005026 Improve:0.029182 Time:16.04 Seconds
+
+
+Index_In_Batch: 19, Avg_Concorde_Distance: 21.840511 Avg_MCTS_Distance: 21.836491 Avg_Gap: -0.000179 Total_Time: 65.41 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+jump:167
+
+Inst_Index:16 Concorde Distance:21.531921, MCTS Distance:21.508630 Improve:0.023291 Time:16.13 Seconds
+
+
+Index_In_Batch: 3, Avg_Concorde_Distance: 21.390344 Avg_MCTS_Distance: 21.411871 Avg_Gap: 0.001049 Total_Time: 65.43 Seconds 
+ Beat_Best_Known_Times: 1 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 3 
+
+Inst_Index:112 Concorde Distance:21.041607, MCTS Distance:21.054206 Improve:-0.012599 Time:16.05 Seconds
+
+
+Index_In_Batch: 27, Avg_Concorde_Distance: 21.354819 Avg_MCTS_Distance: 21.349054 Avg_Gap: -0.000278 Total_Time: 65.39 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+
+Inst_Index:24 Concorde Distance:21.327307, MCTS Distance:21.332189 Improve:-0.004882 Time:16.07 Seconds
+
+
+Index_In_Batch: 5, Avg_Concorde_Distance: 21.582476 Avg_MCTS_Distance: 21.603850 Avg_Gap: 0.000979 Total_Time: 65.42 Seconds 
+ Beat_Best_Known_Times: 1 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 3 
+jump:182
+jump:182
+jump:155
+
+Inst_Index:124 Concorde Distance:21.287004, MCTS Distance:21.292347 Improve:-0.005342 Time:16.03 Seconds
+
+
+Index_In_Batch: 30, Avg_Concorde_Distance: 21.388995 Avg_MCTS_Distance: 21.386924 Avg_Gap: -0.000098 Total_Time: 65.46 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+
+Inst_Index:48 Concorde Distance:21.288361, MCTS Distance:21.271843 Improve:0.016518 Time:16.03 Seconds
+
+
+Index_In_Batch: 11, Avg_Concorde_Distance: 21.422974 Avg_MCTS_Distance: 21.416323 Avg_Gap: -0.000312 Total_Time: 65.50 Seconds 
+ Beat_Best_Known_Times: 4 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 0 
+jump:177
+
+Inst_Index:104 Concorde Distance:20.941153, MCTS Distance:20.947246 Improve:-0.006092 Time:16.10 Seconds
+
+
+Index_In_Batch: 25, Avg_Concorde_Distance: 21.513280 Avg_MCTS_Distance: 21.503381 Avg_Gap: -0.000453 Total_Time: 65.55 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+
+Inst_Index:4 Concorde Distance:21.496334, MCTS Distance:21.557980 Improve:-0.061646 Time:16.08 Seconds
+
+
+Index_In_Batch: 0, Avg_Concorde_Distance: 21.302434 Avg_MCTS_Distance: 21.322182 Avg_Gap: 0.000906 Total_Time: 65.49 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+jump:175
+jump:185
+jump:167
+jump:182
+
+Inst_Index:128 Concorde Distance:21.734611, MCTS Distance:21.733801 Improve:0.000810 Time:16.05 Seconds
+
+
+Index_In_Batch: 31, Avg_Concorde_Distance: 21.682023 Avg_MCTS_Distance: 21.696884 Avg_Gap: 0.000672 Total_Time: 65.62 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+
+Inst_Index:20 Concorde Distance:21.230322, MCTS Distance:21.224465 Improve:0.005857 Time:16.02 Seconds
+
+
+Index_In_Batch: 4, Avg_Concorde_Distance: 21.237583 Avg_MCTS_Distance: 21.234476 Avg_Gap: -0.000143 Total_Time: 65.62 Seconds 
+ Beat_Best_Known_Times: 3 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 1 
+
+Inst_Index:64 Concorde Distance:21.164600, MCTS Distance:21.173568 Improve:-0.008967 Time:16.01 Seconds
+
+
+Index_In_Batch: 15, Avg_Concorde_Distance: 21.149909 Avg_MCTS_Distance: 21.156528 Avg_Gap: 0.000313 Total_Time: 65.49 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+
+Inst_Index:116 Concorde Distance:21.888194, MCTS Distance:21.916965 Improve:-0.028772 Time:16.01 Seconds
+
+
+Index_In_Batch: 28, Avg_Concorde_Distance: 21.418514 Avg_MCTS_Distance: 21.432286 Avg_Gap: 0.000643 Total_Time: 65.60 Seconds 
+ Beat_Best_Known_Times: 1 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 3 
+jump:168
+
+Inst_Index:88 Concorde Distance:21.229122, MCTS Distance:21.250740 Improve:-0.021618 Time:16.01 Seconds
+
+
+Index_In_Batch: 21, Avg_Concorde_Distance: 21.213422 Avg_MCTS_Distance: 21.212635 Avg_Gap: -0.000029 Total_Time: 65.68 Seconds 
+ Beat_Best_Known_Times: 2 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 2 
+jump:164
+jump:187
+
+Inst_Index:120 Concorde Distance:20.710116, MCTS Distance:20.731713 Improve:-0.021597 Time:16.06 Seconds
+
+
+Index_In_Batch: 29, Avg_Concorde_Distance: 21.265212 Avg_MCTS_Distance: 21.296615 Avg_Gap: 0.001474 Total_Time: 65.74 Seconds 
+ Beat_Best_Known_Times: 1 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 3 
+
+Inst_Index:108 Concorde Distance:21.222829, MCTS Distance:21.236941 Improve:-0.014112 Time:16.06 Seconds
+
+
+Index_In_Batch: 26, Avg_Concorde_Distance: 21.820516 Avg_MCTS_Distance: 21.841826 Avg_Gap: 0.000968 Total_Time: 65.74 Seconds 
+ Beat_Best_Known_Times: 1 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 3 
+jump:177
+
+Inst_Index:28 Concorde Distance:22.201347, MCTS Distance:22.204618 Improve:-0.003272 Time:16.07 Seconds
+
+
+Index_In_Batch: 6, Avg_Concorde_Distance: 22.122505 Avg_MCTS_Distance: 22.146480 Avg_Gap: 0.001062 Total_Time: 65.90 Seconds 
+ Beat_Best_Known_Times: 1 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 3 
+jump:186
+
+Inst_Index:32 Concorde Distance:21.078582, MCTS Distance:21.086848 Improve:-0.008266 Time:16.11 Seconds
+
+
+Index_In_Batch: 7, Avg_Concorde_Distance: 21.668950 Avg_MCTS_Distance: 21.710046 Avg_Gap: 0.001884 Total_Time: 65.98 Seconds 
+ Beat_Best_Known_Times: 0 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 4 
+jump:202
+
+Inst_Index:8 Concorde Distance:21.114958, MCTS Distance:21.114131 Improve:0.000827 Time:16.07 Seconds
+
+
+Index_In_Batch: 1, Avg_Concorde_Distance: 21.285779 Avg_MCTS_Distance: 21.292584 Avg_Gap: 0.000319 Total_Time: 66.06 Seconds 
+ Beat_Best_Known_Times: 3 Match_Best_Known_Times: 0 Miss_Best_Known_Times: 1 
+It takes 66 seconds to complete this task...
+Done.

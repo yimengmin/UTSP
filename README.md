@@ -1,21 +1,21 @@
 # UTSP
-This is the (very brief) code repository for paper:
+Code repository for paper:
 
 *Unsupervised Learning for Solving the Travelling Salesman Problem* 
 
-currently it provides an example for TSP 100. 
+currently it provides an example for TSP 200. 
 
 ## Unsupervised Learning
-Training on TSP 100:
+Training on TSP 200:
 
 `
-python -u UTSPmain.py --num_of_nodes 100 --EPOCHS 100 --batch_size 32 --temperature 3.5 --C1_penalty 20.0 --nlayers 2 --hidden 64 --rescale 2.0 --moment 1
+python train.py --num_of_nodes 200 --EPOCHS 300 --batch_size 32 --temperature 3.5  --C1_penalty 20.0 --nlayers 2 --hidden 64 --rescale 2.0 --moment 1 --lr 3e-3 --stepsize 20
 `
 
-Generate TSP 100 test file:
+Generate TSP 200 test file:
 
 `
-python -u loadmodel.py --num_of_nodes 100 --batch_size 32 --temperature 3.5 --nlayers 2 --hidden 64 --rescale 2.0 --moment 1
+python loadmodel.py --num_of_nodes 200 --EPOCHS 300 --batch_size 128 --temperature 3.5  --nlayers 2 --hidden 64 --rescale 2.0 --moment 1
 `
 
 ## Search

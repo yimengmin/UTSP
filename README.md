@@ -1,24 +1,39 @@
 # UTSP
 Code repository for paper:
 
-*Unsupervised Learning for Solving the Travelling Salesman Problem* 
+Yimeng Min, Yiwei Bai, and Carla P. Gomes.  
+"Unsupervised Learning for Solving the Travelling Salesman Problem."  
+NeurIPS 2023  
 
-currently it provides an example for TSP 200. 
 
-## Unsupervised Learning
+
+Here we provide an example for TSP 200. 
+
+# Unsupervised Learning
 Training on TSP 200:
 
-`
-python train.py --num_of_nodes 200 --EPOCHS 300 --batch_size 32 --temperature 3.5  --C1_penalty 20.0 --nlayers 2 --hidden 64 --rescale 2.0 --moment 1 --lr 3e-3 --stepsize 20
-`
-
-Generate TSP 200 test file:
-
-`
-python loadmodel.py --num_of_nodes 200 --EPOCHS 300 --batch_size 128 --temperature 3.5  --nlayers 2 --hidden 64 --rescale 2.0 --moment 1
+`python train.py --num_of_nodes 200 --EPOCHS 300 --batch_size 32 --temperature 3.5  --C1_penalty 20.0 --nlayers 2 --hidden 64 --rescale 2.0 --moment 1 --lr 3e-3 --stepsize 20
 `
 
-## Search
+Generate TSP 200 heatmaps (test file):
+
+`python loadmodel.py --num_of_nodes 200 --EPOCHS 300 --batch_size 128 --temperature 3.5  --nlayers 2 --hidden 64 --rescale 2.0 --moment 1
+`
+
+# Run Search
+
+`cd Search/
+`
+
+`./new-solve-200.sh  0 5 100 0 50 2 1 1 
+`
+
+
+
+
+
+---
+## Detail of Search
 This code follows https://github.com/Spider-scnu/Monte-Carlo-tree-search-for-TSP.
 ### Input data format
 We put all the input files of our experiments into the instances folder. the link is here:

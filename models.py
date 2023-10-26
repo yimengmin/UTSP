@@ -1,20 +1,18 @@
 import torch
 import torch.nn.functional as F
-from torch.nn import Linear
+from torch import tensor
 import torch.nn
-from torch.nn import Parameter
 from diff_moduleS4p import scattering_diffusionS4,GCN_diffusion
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 import torch.nn as nn
-
 class SCTConv(torch.nn.Module):
 
     def __init__(self, hidden_dim):
         super().__init__()
         self.hid = hidden_dim
-        self.linear1 = torch.nn.Linear(hidden_dim, hidden_dim)
-        self.linear2 = torch.nn.Linear(hidden_dim, hidden_dim)
-        self.a = Parameter(torch.zeros(size=(2 * hidden_dim, 1)))
+        self.linear1 = nn.Linear(hidden_dim, hidden_dim)
+        self.linear2 = nn.Linear(hidden_dim, hidden_dim)
+        self.a = nn.Parameter(torch.zeros(size=(2 * hidden_dim, 1)))
 
     def forward(self, X, adj, moment=1, device='cuda'):
         """
@@ -46,16 +44,6 @@ class SCTConv(torch.nn.Module):
         h_sct3 = torch.abs(h_sct3) ** moment
 # S4
         h_sct4 = torch.abs(h_sct4) ** moment
-
-        # xxx stop here
-#        a_input_A = torch.hstack((h, h_A)).unsqueeze(1)
-#        a_input_A2 = torch.hstack((h, h_A2)).unsqueeze(1)
-#        a_input_A3 = torch.hstack((h, h_A3)).unsqueeze(1)
-#        a_input_sct1 = torch.hstack((h, h_sct1)).unsqueeze(1)
-#        a_input_sct2 = torch.hstack((h, h_sct2)).unsqueeze(1)
-#        a_input_sct3 = torch.hstack((h, h_sct3)).unsqueeze(1)
-#        a_input_sct4 = torch.hstack((h, h_sct4)).unsqueeze(1)
-
         a_input_A = torch.cat((h, h_A), dim=2).unsqueeze(1)
         a_input_A2 = torch.cat((h, h_A2), dim=2).unsqueeze(1)
         a_input_A3 = torch.cat((h, h_A3), dim=2).unsqueeze(1)
@@ -73,7 +61,7 @@ class SCTConv(torch.nn.Module):
 #        print(a_input.size())
         # xxxx stop
 
-        e = torch.matmul(torch.nn.functional.relu(a_input), self.a).squeeze(3)
+        e = torch.matmul(nn.functional.relu(a_input), self.a).squeeze(3)
 #        print('e shape')
 #        print(e.size())
 # S3
@@ -101,36 +89,23 @@ class GNN(nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim, n_layers):
         super().__init__()
         self.input_dim = input_dim
-        self.bn0 = torch.nn.BatchNorm1d(input_dim)
-        self.in_proj = torch.nn.Linear(input_dim, hidden_dim)
-        self.convs = torch.nn.ModuleList()
+        self.bn0 = nn.BatchNorm1d(input_dim)
+        self.in_proj = nn.Linear(input_dim, hidden_dim)
+        self.convs = nn.ModuleList()
         for _ in range(n_layers):
             self.convs.append(SCTConv(hidden_dim))
 
-        self.mlp1 = Linear(hidden_dim * (1 + n_layers), hidden_dim)
-        self.mlp2 = Linear(hidden_dim, output_dim)
-        self.bn1 = torch.nn.BatchNorm1d(hidden_dim)
-        self.m = torch.nn.Softmax(dim=1)
+        self.mlp1 = nn.Linear(hidden_dim * (1 + n_layers), hidden_dim)
+        self.mlp2 = nn.Linear(hidden_dim, output_dim)
+        self.bn1 = nn.BatchNorm1d(hidden_dim)
+        self.m = nn.Softmax(dim=1)
 #        self.mlp1 = Linear(hidden_dim * (1 + n_layers), output_dim)
 
     def forward(self, X, adj, moment=1, device='cuda'):
-#        numnodes = X.size(0)
-#        scale = np.sqrt(numnodes)
-#        X = X / scale
-#        print('input x shape')
-#        print(X.size())
-        # reshape to use bn0
-#        nsamples = X.size(0)
-#        X = X.view(-1, self.input_dim)
-#        X = self.bn0(X)
-#        X = X.view(nsamples,-1,self.input_dim)
         X = self.in_proj(X)
         hidden_states = X
         for layer in self.convs:
             X = layer(X, adj, moment=moment, device=device)
-
-#            X = self.bn1(X)
-#            X = X / scale
             hidden_states = torch.cat([hidden_states, X], dim=-1)
 
         X = hidden_states
@@ -138,9 +113,6 @@ class GNN(nn.Module):
         X = F.leaky_relu(X)
         X = self.mlp2(X)
         X = self.m(X)
-#        X = F.relu(X)
-#        X = F.sigmoid(X)
-#        X = X/torch.sum(X,1).unsqueeze(1)
         return X
 
 

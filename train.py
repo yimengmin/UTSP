@@ -49,7 +49,7 @@ torch.cuda.manual_seed(args.seed)
 np.random.seed(args.seed)
 ### load train instance
 
-tsp_instances = np.load('../ScatteringTSP/data/train_tsp_instance_%d.npy'%args.num_of_nodes)
+tsp_instances = np.load('./data/train_tsp_instance_%d.npy'%args.num_of_nodes)
 NumofTestSample = tsp_instances.shape[0]
 
 Std = np.std(tsp_instances, axis=1)
@@ -59,7 +59,7 @@ Mean = np.mean(tsp_instances, axis=1)
 tsp_instances = tsp_instances - Mean.reshape((NumofTestSample,1,2))
 #tsp_instances = np.divide(tsp_instances,Std.reshape((NumofTestSample,1,2)))
 tsp_instances = args.rescale * tsp_instances # 2.0 is the rescale
-tsp_sols = np.load('../ScatteringTSP/data/train_tsp_sol_%d.npy'%args.num_of_nodes)
+tsp_sols = np.load('./data/train_tsp_sol_%d.npy'%args.num_of_nodes)
 
 
 

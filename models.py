@@ -1,13 +1,9 @@
 import torch
 import torch.nn.functional as F
 from torch.nn import Linear
-from torch import tensor
 import torch.nn
-import torch_geometric.utils as sp
-from torch_geometric.data import Data
 from torch.nn import Parameter
 from diff_moduleS4p import scattering_diffusionS4,GCN_diffusion
-import numpy as np
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 import torch.nn as nn
 

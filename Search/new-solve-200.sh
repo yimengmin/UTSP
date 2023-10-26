@@ -1,6 +1,6 @@
 #!/bin/bash
 # author: 
-#rm test
+rm test
 rm code/*.o 
 make
 STARTTIME=$(date +%s)

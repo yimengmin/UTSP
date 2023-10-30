@@ -24,39 +24,12 @@ def GCN_diffusion(W,order,feature,device='cuda'):
         gcn_diffusion_list += [A_gcn_feature,]
     return gcn_diffusion_list
 
-def SCT1st(W,order,feature):
-    '''
-    W: [b,n,n]
-    '''
-    degrees = torch.sum(W,2)
-    D = degrees
-    D = torch.pow(D, -1)
-    D = D.unsqueeze(dim=2)
-    iteration = 2**(order-1)
-    feature_p = feature
-    for i in range(iteration):
-        D_inv_x = D*feature_p
-        W_D_inv_x = torch.matmul(W,D_inv_x)
-        feature_p = 0.5*feature_p + 0.5*W_D_inv_x
-    featura_loc = feature_p
-    for j in range(iteration):
-        D_inv_x = D*feature_p
-        W_D_inv_x = torch.matmul(W,D_inv_x)
-        feature_p = 0.5*feature_p + 0.5*W_D_inv_x
-    feature_p = featura_loc - feature_p
-    return feature_p
-
 def scattering_diffusionS4(sptensor,feature):
     '''
     A_tilte,adj_p,shape(N,N)
     feature:shape(N,3) :torch.FloatTensor
     all on cuda
     '''
-    #generate 1st scattering feature
-#    h_sct1 = SCT1st(sptensor,1,feature)
-#    h_sct2 = SCT1st(sptensor,2,feature)
-#    h_sct3 = SCT1st(sptensor,3,feature)
-
     h_sct1,h_sct2,h_sct3,h_sct4 = SCT1stv2(sptensor,4,feature)
 
     return h_sct1,h_sct2,h_sct3,h_sct4

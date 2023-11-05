@@ -37,7 +37,7 @@ Generate TSP 200 heatmaps (test file):
 This code follows https://github.com/Spider-scnu/Monte-Carlo-tree-search-for-TSP.
 ### Input data format
 We put all the input files of our experiments into the instances folder. the link is here:
-https://drive.google.com/file/d/1D8C4nXA0wQuKyVIyqIDZfRDjJyO9hFcV/view?usp=sharing
+https://drive.google.com/drive/folders/1PyHUkPjtqo2lMRX3w986SqF89mvl0dc_?usp=sharing
 
 If you want to construct your customized input file, you need to follow the following format:
 

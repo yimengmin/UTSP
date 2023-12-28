@@ -10,7 +10,7 @@ NeurIPS 2023
 Here we provide an example for TSP 200. 
 
 # Unsupervised Learning
-Training on TSP 200:
+### Training on TSP 200:
 
 `python train.py --num_of_nodes 200 --EPOCHS 300 --batch_size 32 --temperature 3.5  --C1_penalty 20.0 --nlayers 2 --hidden 64 --rescale 2.0 --moment 1 --lr 5e-3 --stepsize 20
 `
@@ -19,17 +19,37 @@ Generate TSP 200 heatmaps (test file):
 
 `python loadmodel.py --num_of_nodes 200 --batch_size 128 --temperature 3.5  --nlayers 2 --hidden 64 --rescale 2.0 --moment 1
 `
-
-# Run Search
-
+### Search
 `cd Search/
 `
 
+on TSP 200
 `./new-solve-200.sh  0 5 100 0 50 2 1 1 
 `
 
+## Search Parameters for TSP-500 and TSP-1000
 
 
+
+on TSP 500
+`
+./new-solve-500.sh 0 5 100 0 50 2 1 1
+`
+
+on TSP 1000
+`
+./new-solve-1000.sh 0 5 10 0 150 3 1 1
+`
+
+on TSP-500 and TSP-1000, we set T=0.04, (change `Param_T` in `code/include/TSP_IO.h`)
+
+
+
+Regard the I/O Time:
+
+On TSP-1000/500, the I/O can be time consuming.
+
+In fact, for fair comparison with Att-GCN+MCTS, the process in the loadmodel section and the subsequent search involve storing and retrieving a sparse heat map in an N by N format. This approach results in increased I/O time. However, if the heat map is saved and loaded in a more compact, sparse manner, it would significantly cut down the time required. This improvement should be reflected in a reduced overall time reported in the UTSP paper.
 
 
 ---

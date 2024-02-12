@@ -151,6 +151,7 @@ def test(loader,topk = 20):
 #TSP200
 model_name = 'Saved_Models/TSP_200/scatgnn_layer_2_hid_%d_model_210_temp_3.500.pth'%(args.hidden)# topk = 10
 model.load_state_dict(torch.load(model_name))
+#Saved_indices,Saved_Values,Saved_sol,Saved_pos = test(test_loader,topk = 8) # epoch=20>10 
 Saved_indices,Saved_Values,Saved_sol,Saved_pos = test(test_loader,topk = 20) # epoch=20>10
 
 print('Finish Inference!')
@@ -159,17 +160,16 @@ print('Finish Inference!')
 idcs =  Saved_indices
 vals = Saved_Values
 HeatMap = np.zeros((idcs.shape[0],idcs.shape[1],idcs.shape[1])) #(2000,100,100)
-for i in range(idcs.shape[0]):
-    for j in range(idcs.shape[1]):
-        for s_k in range(idcs.shape[2]):
-            k = idcs[i][j][s_k]
-            k = int(k)
-            if not j==k:
-                HeatMap[i][j][k] += HeatMap[i][k][j]
-                HeatMap[i][k][j] = HeatMap[i][j][k]
+
+for i in range(idcs.shape[0]):  # For each item in the batch
+    for j in range(idcs.shape[1]):  # For each index in the sequence
+        for s_k in range(idcs.shape[2]):  # For each saved index for j
+            k = int(idcs[i][j][s_k])  # Convert index k to int
+            if k >= 0:  # Assuming -1 or other negative values are invalid
+                HeatMap[i][j][k] = vals[i][j][s_k]
             else:
                 pass
-
+    HeatMap[i] = HeatMap[i] + HeatMap[i].T
 Heatidx = np.zeros((idcs.shape[0],idcs.shape[1],idcs.shape[1])) #(2000,100,100)
 
 for i in range(idcs.shape[0]):

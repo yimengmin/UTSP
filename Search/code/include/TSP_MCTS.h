@@ -1,30 +1,28 @@
+#include <iostream>
+#include <fstream>
+
 
 // Initialize the parameters used in MCTS
 void MCTS_Init(int Inst_Index)
 {
 	for(int i=0;i<Virtual_City_Num;i++)
+	{
 		for(int j=0;j<Virtual_City_Num;j++)
 		{
 			Weight[i][j]=0.;
 			Chosen_Times[i][j]=0;	
 		}
-	
+	}
 	Total_Simulation_Times=0;	
     // Here we inject prior to the weight
     if (use_rec) {
         cout << "Use Rec" << endl;
         for (int i = 0; i < Virtual_City_Num; ++i) {
-            for (int j = 0; j < Rec_Num; ++j) {
+            for (int j = 0; j < Virtual_City_Num; ++j) {
                 int x = Stored_Rec[Inst_Index][i][j];
                 double v = Stored_Rec_Value[Inst_Index][i][j];
                 if (x != -2) {
-		            //Weight[i][x] = 0.;//assign the same values 
                     Weight[i][x] = 1*v;
-//		    if (v>0){cout<<"value is "<<v<<endl;} 
-                    double rand_prob = rand() / (RAND_MAX + 1.);
-//		    Weight[i][x] +=  1.*rand_prob;
-//                    Weight[i][x] += 0.001 * rand_prob;
-//                    cout<<rand_pro<<endl;
                 }
             }
         }

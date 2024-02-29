@@ -4,6 +4,8 @@
 #include "include/TSP_2Opt.h"
 #include "include/TSP_MCTS.h"
 #include "include/TSP_Markov_Decision.h"
+#include "include/TSP_sym.h"
+#include <algorithm> // For std::find
 
 // For TSP20-50-100 instances
 void Solve_One_Instance(int Inst_Index)
@@ -107,21 +109,56 @@ bool Solve_Instances_In_Batch()
         for (int j = 0; j < Temp_City_Num; ++j) {
             for (int k = 0; k < Rec_Num; ++k) {
                 FIC >> Rec_Index;
-                Stored_Rec[i][j].push_back(Rec_Index - 1);
+                Sparse_Stored_Rec[i][j].push_back(Rec_Index - 1);
             }
         }
         FIC >> &Temp_String[0];
         for (int j = 0; j < Temp_City_Num; ++j) {
             for (int k = 0; k < Rec_Num; ++k) {
                 FIC >> Rec_Value;
-                Stored_Rec_Value[i][j].push_back(Rec_Value);
+                Sparse_Stored_Rec_Value[i][j].push_back(Rec_Value);
+		//cout<<"push back"<<Rec_Value<<endl;
             }
         }
+
+//  	cout <<"\nRead instances finished. Begin to search."<<endl;
+        for (int j = 0; j < Temp_City_Num; ++j) {
+		for(int k = 0; k < Temp_City_Num; ++k)
+		{
+		Stored_Rec_Value[i][j].push_back(0.0);
+		}
+            }
+
+	for (int j = 0; j < Temp_City_Num; ++j) {
+	    for (int l = 0; l < Temp_City_Num; ++l) {
+	        // Use std::find to look for 'l' in Sparse_Stored_Rec[i][j]
+	        auto it = std::find(Sparse_Stored_Rec[i][j].begin(), Sparse_Stored_Rec[i][j].end(), l);
+	        if (it != Sparse_Stored_Rec[i][j].end()) {
+	            // If found, calculate the index using std::distance
+	            int index = std::distance(Sparse_Stored_Rec[i][j].begin(), it);
+	            //std::cout << l << " index: " << index << std::endl;
+		    Stored_Rec_Value[i][j][l] =  Sparse_Stored_Rec_Value[i][j][index];
+	        }
+	        // You can add that code here
+	    }
+	}
+
+
+	// H' = H + H^T
+	symmetrizeMatrix(Stored_Rec_Value[i], Max_City_Num);
+
+	for (int j = 0; j < Temp_City_Num; ++j) {
+		for (int m = 0; m < Temp_City_Num; ++m)
+               	Stored_Rec[i][j].push_back(m);
+	}
+
+
+
+	
 	}      
   	FIC.close();  
-  	
-  	cout <<"\nRead instances finished. Begin to search."<<endl;
-	
+
+
     cout << "Inst Num Per Batch " << Inst_Num_Per_Batch << endl;	
 	if((Index_In_Batch+1)*Inst_Num_Per_Batch < Total_Instance_Num)
 		Test_Inst_Num=Inst_Num_Per_Batch;
@@ -296,3 +333,7 @@ int main(int argc, char ** argv)
 	return 0;
 }
 */ 
+
+
+
+

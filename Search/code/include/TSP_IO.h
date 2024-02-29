@@ -14,7 +14,7 @@ using namespace std;
 #define Null               -1 
 #define Inf_Cost           1000000000
 #define Magnify_Rate       1000000
-#define Max_Inst_Num       128
+#define Max_Inst_Num       128// change 128->10000 if working on TSP-20,50,100
 #define Max_City_Num       200
 int Max_Candidate_Num = 5;
 int Max_Depth = 10;
@@ -33,8 +33,7 @@ unsigned Random_Seed=Default_Random_Seed;
 
 typedef int    Distance_Type;
  
-//Information of the 30,000 TSP20-50-100 instances
-int Total_Instance_Num = 128;
+int Total_Instance_Num = 128; // change 128->10000 if working on TSP-20,50,100
 char *Input_File_Name;
 int Temp_City_Num;
 
@@ -50,7 +49,9 @@ int restart_reconly;
 /*
  * Here we define new array to store the recomend citys and corresponding value
  */
-int Rec_Num = 200;
+int Rec_Num = 20; /* the topk in loadmodel.py*/
+vector<int> Sparse_Stored_Rec[Max_Inst_Num][Max_City_Num];
+vector<double> Sparse_Stored_Rec_Value[Max_Inst_Num][Max_City_Num];
 vector<int> Stored_Rec[Max_Inst_Num][Max_City_Num];
 vector<double> Stored_Rec_Value[Max_Inst_Num][Max_City_Num];
 bool use_rec;

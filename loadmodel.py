@@ -26,8 +26,10 @@ parser.add_argument('--batch_size', type=int, default=32,
 parser.add_argument('--nlayers', type=int, default=3,
                     help='num of layers')
 parser.add_argument('--use_smoo', action='store_true')
-parser.add_argument('--EPOCHS', type=int, default=20,
+parser.add_argument('--EPOCHS', type=int, default=300,
                     help='epochs to train')
+parser.add_argument('--topk', type=int, default=20,
+                    help='top k elements per row, should equal to int Rec_Num = 20 in Search/code/include/TSP_IO.h')
 parser.add_argument('--penalty_coefficient', type=float, default=2.,
                     help='penalty_coefficient')
 parser.add_argument('--wdecay', type=float, default=0.0,
@@ -149,44 +151,24 @@ def test(loader,topk = 20):
 
 
 #TSP200
-model_name = 'Saved_Models/TSP_200/scatgnn_layer_2_hid_%d_model_210_temp_3.500.pth'%(args.hidden)# topk = 10
+model_name = 'Saved_Models/TSP_%d/scatgnn_layer_2_hid_%d_model_210_temp_3.500.pth'%(args.num_of_nodes,args.hidden)# topk = 10
 model.load_state_dict(torch.load(model_name))
 #Saved_indices,Saved_Values,Saved_sol,Saved_pos = test(test_loader,topk = 8) # epoch=20>10 
-Saved_indices,Saved_Values,Saved_sol,Saved_pos = test(test_loader,topk = 20) # epoch=20>10
+Saved_indices,Saved_Values,Saved_sol,Saved_pos = test(test_loader,topk = args.topk) # epoch=20>10
 
 print('Finish Inference!')
 
 
 idcs =  Saved_indices
 vals = Saved_Values
-HeatMap = np.zeros((idcs.shape[0],idcs.shape[1],idcs.shape[1])) #(2000,100,100)
-
-for i in range(idcs.shape[0]):  # For each item in the batch
-    for j in range(idcs.shape[1]):  # For each index in the sequence
-        for s_k in range(idcs.shape[2]):  # For each saved index for j
-            k = int(idcs[i][j][s_k])  # Convert index k to int
-            if k >= 0:  # Assuming -1 or other negative values are invalid
-                HeatMap[i][j][k] = vals[i][j][s_k]
-            else:
-                pass
-    HeatMap[i] = HeatMap[i] + HeatMap[i].T
-Heatidx = np.zeros((idcs.shape[0],idcs.shape[1],idcs.shape[1])) #(2000,100,100)
-
-for i in range(idcs.shape[0]):
-    for j in range(idcs.shape[1]):
-        for k in range(idcs.shape[1]):
-            Heatidx[i][j][k] = k
-
-
 
 import os, sys
 
 Q = Saved_pos
 A = Saved_sol 
 
-C = Heatidx
-V = HeatMap
-
+C = idcs
+V = vals
 with open("1kTraning_TSP%dInstance_%d.txt"%(args.num_of_nodes,idcs.shape[0]), "w") as f:
     for i in range(Q.shape[0]):
         for j in range(Q.shape[1]):
@@ -196,18 +178,17 @@ with open("1kTraning_TSP%dInstance_%d.txt"%(args.num_of_nodes,idcs.shape[0]), "w
             f.write(str(int(A[i][j] + 1)) + " ")
         f.write("indices ")
         for j in range(C.shape[1]):
-            for k in range(args.num_of_nodes):
+            for k in range(args.topk):
                 if C[i][j][k] == j:
                     f.write("-1" + " ")
                 else:
                     f.write(str(int(C[i][j][k] + 1)) + " ")
         f.write("value ")
         for j in range(V.shape[1]):
-            for k in range(args.num_of_nodes):
+            for k in range(args.topk):
                 f.write(str(V[i][j][k]) + " ")
         f.write("\n")
         if i == idcs.shape[0] - 1:
             break
-
 
 

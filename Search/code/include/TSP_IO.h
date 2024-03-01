@@ -213,6 +213,7 @@ void Release_Memory(int City_Num)
 //For TSP20-50-100 instances 
 bool Fetch_Stored_Instance_Info(int Inst_Index)
 {
+//	cout<<"Temp_City_Num: "<<Temp_City_Num<<endl;
 	City_Num=Temp_City_Num;
 	Start_City=0;
 	Salesman_Num=1;	

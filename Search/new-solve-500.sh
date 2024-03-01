@@ -5,7 +5,6 @@ rm code/*.o
 make
 STARTTIME=$(date +%s)
 tsp=("../1kTraning_TSP500Instance_128.txt")
-tsp=("../1kTraning_TSP500Instance_128.txt")
 instancenum=(500)
 j=0
 sources500=("./results/500/result_1.txt" "./results/500/result_2.txt" "./results/500/result_3.txt" "./results/500/result_4.txt" "./results/500/result_5.txt" "./results/500/result_6.txt" "./results/500/result_7.txt" "./results/500/result_8.txt" "./results/500/result_9.txt" "./results/500/result_10.txt" "./results/500/result_11.txt" "./results/500/result_12.txt" "./results/500/result_13.txt" "./results/500/result_14.txt" "./results/500/result_15.txt" "./results/500/result_16.txt" "./results/500/result_17.txt" "./results/500/result_18.txt" "./results/500/result_19.txt" "./results/500/result_20.txt" "./results/500/result_21.txt" "./results/500/result_22.txt" "./results/500/result_23.txt" "./results/500/result_24.txt" "./results/500/result_25.txt" "./results/500/result_26.txt" "./results/500/result_27.txt" "./results/500/result_28.txt" "./results/500/result_29.txt" "./results/500/result_30.txt" "./results/500/result_31.txt" "./results/500/result_32.txt")

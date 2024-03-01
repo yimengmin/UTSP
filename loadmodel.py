@@ -50,7 +50,7 @@ torch.cuda.manual_seed(args.seed)
 device = args.device
 
 
-tsp_instances = np.load('./data/test_tsp_instance_%d.npy'%args.num_of_nodes) # 10,000 instances
+tsp_instances = np.load('./data/test_tsp_instance_%d.npy'%args.num_of_nodes) # 128 instances
 NumofTestSample = tsp_instances.shape[0]
 Std = np.std(tsp_instances, axis=1)
 Mean = np.mean(tsp_instances, axis=1)
@@ -158,18 +158,13 @@ Saved_indices,Saved_Values,Saved_sol,Saved_pos = test(test_loader,topk = args.to
 
 print('Finish Inference!')
 
-
-idcs =  Saved_indices
-vals = Saved_Values
-
 import os, sys
 
 Q = Saved_pos
 A = Saved_sol 
-
-C = idcs
-V = vals
-with open("1kTraning_TSP%dInstance_%d.txt"%(args.num_of_nodes,idcs.shape[0]), "w") as f:
+C = Saved_indices
+V = Saved_Values
+with open("1kTraning_TSP%dInstance_%d.txt"%(args.num_of_nodes,Saved_indices.shape[0]), "w") as f:
     for i in range(Q.shape[0]):
         for j in range(Q.shape[1]):
             f.write(str(Q[i][j][0]) + " " + str(Q[i][j][1]) + " ")
@@ -188,7 +183,7 @@ with open("1kTraning_TSP%dInstance_%d.txt"%(args.num_of_nodes,idcs.shape[0]), "w
             for k in range(args.topk):
                 f.write(str(V[i][j][k]) + " ")
         f.write("\n")
-        if i == idcs.shape[0] - 1:
+        if i == Saved_indices.shape[0] - 1:
             break
 
 

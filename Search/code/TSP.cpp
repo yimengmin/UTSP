@@ -117,7 +117,6 @@ bool Solve_Instances_In_Batch()
             for (int k = 0; k < Rec_Num; ++k) {
                 FIC >> Rec_Value;
                 Sparse_Stored_Rec_Value[i][j].push_back(Rec_Value);
-		//cout<<"push back"<<Rec_Value<<endl;
             }
         }
 
@@ -139,7 +138,6 @@ bool Solve_Instances_In_Batch()
 	            //std::cout << l << " index: " << index << std::endl;
 		    Stored_Rec_Value[i][j][l] =  Sparse_Stored_Rec_Value[i][j][index];
 	        }
-	        // You can add that code here
 	    }
 	}
 

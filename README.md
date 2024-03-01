@@ -62,8 +62,16 @@ on TSP 1000
 ./new-solve-1000.sh 0 5 10 0 150 3 1 1
 `
 
-on TSP-500 and TSP-1000, we set T=0.04, (change `Param_T` in `code/include/TSP_IO.h`)
+on TSP-500 and TSP-1000, we set T=0.04, (change `Param_T` in `Search/code/include/TSP_IO.h`)
 
+on TSP-200, we set `double Param_T=0.08;`
+
+
+#### search time
+the `double Param_T` controls the search time, longer time should have better results
+
+for example, on TSP-500, if you set `double Param_T=0.3;` and run `./new-solve-500.sh 0 5 100 0 50 2 1 1`,
+you will have a gap around 0.42 % in around 10 minutes.
 
 
 ---
@@ -101,9 +109,6 @@ run
 ---
 ## Detail of Search
 This code follows https://github.com/Spider-scnu/Monte-Carlo-tree-search-for-TSP.
-### Input data format
-We put all the input files of our experiments into the instances folder. the link is here:
-https://drive.google.com/drive/folders/1PyHUkPjtqo2lMRX3w986SqF89mvl0dc_?usp=sharing
 
 If you want to construct your customized input file, you need to follow the following format:
 
@@ -115,9 +120,11 @@ The first 2 * n floats are the coordinates following (x1, y1, ..., xn, yn)
 
 Then there is a word "output". After it, we have n + 1 numbers, which shows the optimal solution.
 
-Then there is a word "indices". After it, there are n * n ints, for the i-th consecutive n ints, these n ints are 1 to n except for i and we will replace i with -1 (since we do not want to have self-loop). (Please check TSP20_Input.txt for better understanding)
+Then there is a word "indices". After it, there are n * topk ints, 
 
-Then there is a word output. After it, there are n * n ints, which shows the corresponding heatmap value for each edge. Note the diagonal value should be all zero.
+Then there is a word output. After it, there are n * topk float, which shows the corresponding heatmap value for each edge. 
+
+
 
 ## Command Line Usage
 

@@ -36,19 +36,20 @@ Generate TSP 200 heatmaps (test file):
 ## Search
 `cd Search/`
 
+
+
 ### note:
+
 remember to `mkdir Search/results/n` first
-change the `#define Max_City_Num to n`    in `Search/code/include/TSP_IO.h`
+
+change the `#define Max_City_Num to n` in `Search/code/include/TSP_IO.h`
+
 change the `instancenum` in new-solve-n.sh
 
 
-
+## Search Parameters for TSP-200, TSP-500 and TSP-1000
 on TSP 200
-`./new-solve-200.sh  0 5 100 0 50 2 1 1 
-`
-
-## Search Parameters for TSP-500 and TSP-1000
-
+`./new-solve-200.sh  0 5 100 0 50 2 1 1` 
 
 
 on TSP 500
@@ -62,6 +63,7 @@ on TSP 1000
 `
 
 on TSP-500 and TSP-1000, we set T=0.04, (change `Param_T` in `code/include/TSP_IO.h`)
+
 
 
 

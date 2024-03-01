@@ -66,6 +66,37 @@ on TSP-500 and TSP-1000, we set T=0.04, (change `Param_T` in `code/include/TSP_I
 
 
 
+---
+### on TSP-100
+
+`python train.py --num_of_nodes 100 --EPOCHS 300 --batch_size 32 --temperature 3.5  --C1_penalty 20.0 --nlayers 2 --hidden 64 --rescale 1.0 --moment 1`
+
+`python loadmodel.py --num_of_nodes 100 --batch_size 256 --temperature 3.5  --nlayers 2 --hidden 64 --rescale 1.0 --moment 1 --topk 10`
+
+when search TSP-100
+
+in `Search/code/include/TSP_IO.h`
+
+change `#define Max_Inst_Num 128` to `#define Max_Inst_Num 10000`
+
+set `#define Max_City_Num       100`
+
+change `int Total_Instance_Num = 128;` to `int Total_Instance_Num = 10000;`
+
+set `int Inst_Num_Per_Batch = 313;` 
+
+set `double Param_T=0.01;`
+
+set `int Rec_Num = 10;`  in `code/include/TSP_IO.h`;  the `Rec_Num` should be equal `--topk` in `loadmodel.py`
+
+also remember `mkdir 100` in `Search/results`
+
+
+run 
+
+`./new-solve-100.sh  0.1 6 10 0 30 3 0 0`
+
+
 
 ---
 ## Detail of Search

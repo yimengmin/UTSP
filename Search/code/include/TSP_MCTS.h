@@ -9,7 +9,7 @@ void MCTS_Init(int Inst_Index)
 	{
 		for(int j=0;j<Virtual_City_Num;j++)
 		{
-			Weight[i][j]=0.;
+//			Weight[i][j]=0.;
 			Chosen_Times[i][j]=0;	
 		}
 	}
@@ -22,8 +22,9 @@ void MCTS_Init(int Inst_Index)
                 int x = Stored_Rec[Inst_Index][i][j];
                 double v = Stored_Rec_Value[Inst_Index][i][j];
                 if (x != -2) {
-                    Weight[i][x] = 1*v;
+                    Weight[i][x] = 1.0*v;
                 }
+		else {Weight[i][x] = 0.0;}
             }
         }
     } else {

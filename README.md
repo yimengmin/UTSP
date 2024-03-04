@@ -8,7 +8,7 @@ NeurIPS 2023
 
 
 
-Here we provide an example for TSP 200,500 and 1000. 
+Here we provide an example for TSP 100, 200, 500 and 1000. 
 
 # Unsupervised Learning
 ### Training on TSP 200:
@@ -58,9 +58,12 @@ on TSP 500
 `
 
 on TSP 1000
+`./new-solve-1000.sh 0 5 100 0 50 2 1 1` or
+
 `
 ./new-solve-1000.sh 0 5 10 0 150 3 1 1
 `
+
 
 on TSP-500 and TSP-1000, we set T=0.04, (change `Param_T` in `Search/code/include/TSP_IO.h`)
 
@@ -73,6 +76,9 @@ the `double Param_T` controls the search time, longer time should have better re
 for example, on TSP-500, if you set `double Param_T=0.3;` and run `./new-solve-500.sh 0 5 100 0 50 2 1 1`,
 you will have a gap around 0.42 % in around 10 minutes.
 
+
+for example, on TSP-1000, if you set `double Param_T=0.1;` and run `./new-solve-1000.sh 0 5 100 0 50 2 1 1` or `./new-solve-1000.sh 0 5 10 0 150 3 1 1`,
+you will have a gap around 0.92 % in around 7 minutes.
 
 ---
 ### on TSP-100
@@ -89,15 +95,15 @@ change `#define Max_Inst_Num 128` to `#define Max_Inst_Num 10000`
 
 set `#define Max_City_Num       100`
 
-change `int Total_Instance_Num = 128;` to `int Total_Instance_Num = 10000;`
+<del>change `int Total_Instance_Num = 128;` to `int Total_Instance_Num = 10000;` </del>
 
-set `int Inst_Num_Per_Batch = 313;` 
+<del>set `int Inst_Num_Per_Batch = 313;` </del>
 
 set `double Param_T=0.01;`
 
 set `int Rec_Num = 10;`  in `code/include/TSP_IO.h`;  the `Rec_Num` should be equal `--topk` in `loadmodel.py`
 
-also remember `mkdir 100` in `Search/results`
+also remember  in  `Search/results`, you need to `mkdir 100` to create a file to store the results
 
 
 run 

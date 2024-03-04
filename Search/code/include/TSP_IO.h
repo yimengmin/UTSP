@@ -9,6 +9,7 @@
 #include <vector>
 #include <string.h>
 #include <math.h>
+#include <cmath> // Include for std::ceil
 using namespace std;
 
 #define Null               -1 
@@ -23,7 +24,7 @@ int restart;
 //Hyper parameters 
 double Alpha=1;       //used in estimating the potential of each edge
 double Beta=10;       //used in back propagation
-double Param_H=10;   //used to control the number of sampling actions
+double Param_H=3;   //used to control the number of sampling actions
 double Param_T=0.08;  	 //used to control the termination condition
 
 
@@ -33,15 +34,16 @@ unsigned Random_Seed=Default_Random_Seed;
 
 typedef int    Distance_Type;
  
-int Total_Instance_Num = 128; // change 128->10000 if working on TSP-20,50,100
+int Total_Instance_Num = Max_Inst_Num; // change 128->10000 if working on TSP-20,50,100
 char *Input_File_Name;
 int Temp_City_Num;
 
 double Stored_Coordinates_X[Max_Inst_Num][Max_City_Num];
 double Stored_Coordinates_Y[Max_Inst_Num][Max_City_Num];
 int    Stored_Opt_Solution[Max_Inst_Num][Max_City_Num]; 
-int Inst_Num_Per_Batch=int(Total_Instance_Num / 32); 
-//int Inst_Num_Per_Batch = 4;
+int Inst_Num_Per_Batch=std::ceil(Total_Instance_Num / 32);
+//int Inst_Num_Per_Batch=int(Total_Instance_Num / 32); 
+//int Inst_Num_Per_Batch = 313;
 int Index_In_Batch;
 int rec_only;
 int restart_reconly;
